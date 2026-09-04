@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Delivery & Assembly Schedule</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Kitchen Assembly & Route Dispatch</h1>
+    <p>Time-Sensitive Food Delivery Scheduler</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Add / Update Route</h2>
+      <form id="route-form">
+        <div class="form-group">
+          <label for="routeNumber">Route Number / Name</label>
+          <input type="text" id="routeNumber" placeholder="e.g., Route 3" required>
+        </div>
+
+        <div class="form-group">
+          <label for="colorCode">Route Color Code</label>
+          <select id="colorCode" required>
+            <option value="#ef4444">Red</option>
+            <option value="#3b82f6">Blue</option>
+            <option value="#eab308">Yellow</option>
+            <option value="#22c55e">Green</option>
+            <option value="#a855f7">Purple</option>
+            <option value="#f97316">Orange</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="totalDishes">Total Dishes</label>
+          <input type="number" id="totalDishes" placeholder="e.g., 45" min="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="prepMinutes">Boxing Time Required (Minutes)</label>
+          <input type="number" id="prepMinutes" placeholder="e.g., 30" min="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="departureTime">Required Leaving Time</label>
+          <input type="time" id="departureTime" required>
+        </div>
+
+        <div class="form-group">
+          <label for="returnTime">Driver Return Time</label>
+          <input type="time" id="returnTime" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="drops">Sub-drops (Comma Separated)</label>
+          <input type="text" id="drops" placeholder="e.g., 3a (10 dishes), 3b (15 dishes), 3c (20 dishes)" required>
+        </div>
+
+        <button type="submit" class="btn-primary">Add Route to Schedule</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Kitchen Assembly Sequence (Sorted by Packing Start Time)</h2>
+      <div id="schedule-list" class="schedule-grid">
+        </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
